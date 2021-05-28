@@ -7,7 +7,6 @@ function Registro() {
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-    const [cargo, setcargo] = useState("")
 
     Axios.defaults.withCredentials = true
     
@@ -16,7 +15,7 @@ function Registro() {
         nome: nome,
         email: email,
         senha: senha,
-        cargo: cargo
+        cargo: 'comum'
       }).then((response) => {
         console.log(response)
       })
@@ -30,10 +29,8 @@ function Registro() {
       <input type="text" onChange={(e)=>{setEmail(e.target.value)}}/>
       
       <label>Senha</label>
-      <input type="text" onChange={(e)=>{setSenha(e.target.value)}}/>
+      <input type="password" onChange={(e)=>{setSenha(e.target.value)}}/>
       
-      <label>Cargo</label>
-      <input type="text" onChange={(e)=>{setcargo(e.target.value)}}/>
       <button onClick={Registrar}>Registrar</button>
     </div>
   )

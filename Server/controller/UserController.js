@@ -1,7 +1,6 @@
 const database = require('../models')
 
 class UserController{
-    static async registrar(req, res){}
     
   static async registrar(req, res) {
     const novoUsuario = req.body
