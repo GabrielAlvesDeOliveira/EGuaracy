@@ -1,41 +1,32 @@
 import React, {useState} from 'react'
-import '../App.css'
 import Axios from 'axios'
 
-function Registro() {
-  
-    const [nome, setNome] = useState("")
+function Login() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
 
     Axios.defaults.withCredentials = true
     
-    const Registrar = () =>{
-      Axios.post("http://localhost:3001/registrar",{
-        nome: nome,
+    const Login = () =>{
+      Axios.post("http://localhost:3001/login",{
         email: email,
-        senha: senha,
-        cargo: 'comum'
+        senha: senha
       }).then((response) => {
         console.log(response)
       })
     }
     return (
-    <div className="registro">
-
-      <h1>Registrar</h1>
-      <label>Nome</label>
-      <input type="text" onChange={(e)=>{setNome(e.target.value)}}/>
-      
+    <div className="login">
+      <h1>Login</h1>
       <label>Email</label>
       <input type="text" onChange={(e)=>{setEmail(e.target.value)}}/>
       
       <label>Senha</label>
       <input type="password" onChange={(e)=>{setSenha(e.target.value)}}/>
       
-      <button onClick={Registrar}>Registrar</button>
+      <button onClick={Login}>logar</button>
     </div>
   )
 }
 
-export default Registro
+export default Login
